@@ -60,7 +60,7 @@ class SpawnFlagCommand implements CommandExecutor {
 			return true;
 		}
 
-		$skin = $flag->getSkin();
+		$skin = $flag->skin();
 		$nbt = Entity::createBaseNBT($sender->asVector3());
 		$nbt->setTag(new CompoundTag("Skin", [
 			new StringTag("Name", $skin->getSkinId()),

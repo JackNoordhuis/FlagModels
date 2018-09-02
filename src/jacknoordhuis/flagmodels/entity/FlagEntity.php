@@ -41,7 +41,7 @@ class FlagEntity extends Human {
 	public function setFlag(Flag $flag) : void {
 		$this->flag = $flag;
 
-		$this->setSkin($flag->getSkin());
+		$this->setSkin($flag->skin());
 	}
 
 	public function initEntity(): void {

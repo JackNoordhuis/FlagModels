@@ -58,7 +58,7 @@ class Flag {
 		return $this->texture;
 	}
 
-	public function getSkin() : Skin {
+	public function skin() : Skin {
 		return clone $this->skin;
 	}
 
