@@ -2,5 +2,5 @@
 general:
   flags:
     - name: australia
-      geometry: australia.json
+      geometry: australia.min.json
       texture: australia.png
