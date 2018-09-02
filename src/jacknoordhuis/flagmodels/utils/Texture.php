@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Skin.php – FlagModels
+ * Texture.php – FlagModels
  *
  * Copyright (C) 2018 Jack Noordhuis
  *
@@ -20,7 +20,7 @@ namespace jacknoordhuis\flagmodels\utils;
 
 use pocketmine\utils\BinaryStream;
 
-abstract class Skin {
+abstract class Texture {
 
 	/**
 	 * Thanks to SalmonDE and Muqsit for their code.

@@ -19,7 +19,7 @@ declare(strict_types=1);
 namespace jacknoordhuis\flagmodels\utils\config;
 
 use jacknoordhuis\flagmodels\flag\Flag;
-use jacknoordhuis\flagmodels\utils\Skin;
+use jacknoordhuis\flagmodels\utils\Texture;
 
 class FlagsConfigurationLoader extends ConfigurationLoader {
 
@@ -35,7 +35,7 @@ class FlagsConfigurationLoader extends ConfigurationLoader {
 				$this->getPlugin()->getLogger()->warning("Unable to load flag '{$fData["name"]}' due to missing texture file!");
 				continue;
 			}
-			$texture = Skin::skinToBinary(imagecreatefrompng($this->getPlugin()->getDataFolder() . "textures" . DIRECTORY_SEPARATOR . $fData["texture"]));
+			$texture = Texture::skinToBinary(imagecreatefrompng($this->getPlugin()->getDataFolder() . "textures" . DIRECTORY_SEPARATOR . $fData["texture"]));
 
 			$this->getPlugin()->getFlagManager()->registerFlag(new Flag(strtolower($fData["name"]), $geometry, $texture));
 		}
