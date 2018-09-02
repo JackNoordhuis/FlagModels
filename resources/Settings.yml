@@ -1,0 +1,6 @@
+###  FlagModels v0.0.1-dev#1 configuration file ###
+general:
+  flags:
+    - name: australia
+      geometry: australia.json
+      texture: australia.png

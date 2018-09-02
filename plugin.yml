@@ -1,0 +1,20 @@
+name: FlagModels
+version: 0.0.1-dev#1
+author: Jack Noordhuis
+main: jacknoordhuis\flagmodels\FlagModels
+api: 3.0.0
+
+commands:
+  spawnflag:
+    description: Spawn a flag entity!
+
+permissions:
+  flagmodels:
+    description: FlagModels plugin master permission node
+    default: op
+    children:
+      flagmodels.command:
+        description: FlagModels plugin master command permission node
+        children:
+          flagmodels.command.spawn:
+            description: FlagModels plugin /spawnflag command permission
