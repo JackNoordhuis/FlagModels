@@ -21,10 +21,6 @@ namespace jacknoordhuis\flagmodels\entity;
 use jacknoordhuis\flagmodels\flag\Flag;
 use jacknoordhuis\flagmodels\FlagModels;
 use pocketmine\entity\Human;
-use pocketmine\network\mcpe\protocol\AddPlayerPacket;
-use pocketmine\network\mcpe\protocol\PlayerListPacket;
-use pocketmine\network\mcpe\protocol\types\PlayerListEntry;
-use pocketmine\Player;
 use pocketmine\Server;
 
 class FlagEntity extends Human {
