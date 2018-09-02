@@ -71,37 +71,4 @@ class FlagEntity extends Human {
 		$this->namedtag->setString("FlagName", $this->flag->name());
 	}
 
-	protected function sendSpawnPacket(Player $player) : void {
-
-		if(!($this instanceof Player)) {
-			/* we don't use Server->updatePlayerListData() because that uses batches, which could cause race conditions in async compression mode */
-			$pk = new PlayerListPacket();
-			$pk->type = PlayerListPacket::TYPE_ADD;
-			$pk->entries = [PlayerListEntry::createAdditionEntry($this->uuid, $this->id, $this->getName(), $this->getName(), 0, $this->skin)];
-			$player->dataPacket($pk);
-		}
-
-		$pk = new AddPlayerPacket();
-		$pk->uuid = $this->getUniqueId();
-		$pk->username = $this->getName();
-		$pk->entityRuntimeId = $this->getId();
-		$pk->position = $this->asVector3();
-		$pk->motion = $this->getMotion();
-		$pk->yaw = $this->yaw;
-		$pk->pitch = $this->pitch;
-		$pk->item = $this->getInventory()->getItemInHand();
-		$pk->metadata = $this->propertyManager->getAll();
-		$player->dataPacket($pk);
-
-		//TODO: Hack for MCPE 1.2.13: DATA_NAMETAG is useless in AddPlayerPacket, so it has to be sent separately
-		$this->sendData($player, [self::DATA_NAMETAG => [self::DATA_TYPE_STRING, $this->getNameTag()]]);
-
-		$this->armorInventory->sendContents($player);
-
-		$pk = new PlayerListPacket();
-		$pk->type = PlayerListPacket::TYPE_REMOVE;
-		$pk->entries = [PlayerListEntry::createRemovalEntry($this->uuid)];
-		$player->dataPacket($pk);
-	}
-
 }
